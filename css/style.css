@@ -1,0 +1,226 @@
+/*
+
+My Custom CSS
+=============
+
+Author:  Brad Hussey
+Updated: August 2013
+Notes:	 Hand coded for Udemy.com
+
+*/
+
+
+/* --------------------------------------
+   Layout
+   -------------------------------------- */
+
+
+.cont{
+  margin: 70px 0 0px 0;  
+}
+
+#deals img{
+   margin: 0 0 20px 0;
+   
+}
+
+#deals{
+   text-align: center;
+}
+#upcomingDeals img{
+width:100%;
+
+}
+#jumbo{
+background:url(../../images/flip37.jpg) top center no-repeat;
+height:400px;
+
+}
+/* --------------------------------------
+   Typography
+   -------------------------------------- */
+
+/* --------------------------------------
+   Navbar
+   -------------------------------------- */
+ 
+.navbar-brand img{
+   width:149px;
+}
+#myNavBar{
+   background: #2567d3;
+}
+#searchsite{
+   width: 200px;
+   margin-top: 10px;
+  
+}
+
+#searchButton{
+  
+   margin-top: 10px;
+}
+#cart{
+   margin-left: 10px;
+   color: white;
+   margin-top: 7px;
+}
+#myAccount{
+   color: white;
+   margin-top: 10px;
+}
+#myOption li{
+margin:2px 10px 1px 30px;
+padding:0px 10px 0px 10px;
+}
+h1,h2{
+   margin-top:80px;
+
+}
+#myOption li a{
+font-weight:bold;
+color:white;
+}
+#myOption li a:hover{
+background-color: black;
+color:white;
+}
+#ad{
+   font-size: 20px;
+}
+footer{
+   background: #333;
+   color:#eee;
+   font-size: 10px;
+   font-weight: normal;
+   padding: 15px;
+}
+footer ul{
+   list-style: none;
+   padding: 0;
+}
+
+footer h4{
+   font-size: 18px;
+}
+footer p{
+   font-size: 12px;
+}
+#bankOffer img{
+   width: 100%;
+}
+/* --------------------------------------
+   Carousel
+   -------------------------------------- */
+#myCarousel{
+   margin-top: 80px;
+}
+.item h4{
+   font-size: 32px;
+}
+.item p{
+   font-size: 24px;
+}
+#myCarousel .item{
+height: 400px;
+}
+#slide1{
+background: url(../../images/flip_l_1.jpg) top center no-repeat;   
+}
+#slide2{
+background: url(../../images/flip_l_2.jpg) top center no-repeat;      
+}
+#slide3{
+background: url(../../images/flip_l_3.jpg) top center no-repeat;     
+}
+#slide4{
+background: url(../../images/flip_l_4.jpg) top center no-repeat;      
+}
+
+/* --------------------------------------
+   Global Styles
+   -------------------------------------- */
+
+/* --------------------------------------
+   Media Queries
+   -------------------------------------- */
+
+/* Portrait & landscape phone */
+@media (max-width: 480px) {
+#jumbo p{
+font-size: 18px;
+}
+.item h4{
+   font-size: 26px;
+}
+.item p{
+   font-size: 16px;
+}
+#slide1{
+background: url(../../images/flip_s_1.jpg) top center no-repeat;   
+}
+#slide2{
+background: url(../../images/flip_s_2.jpg) top center no-repeat;      
+}
+#slide3{
+background: url(../../images/flip_s_3.jpg) top center no-repeat;     
+}
+#slide4{
+background: url(../../images/flip_s_4.jpg) top center no-repeat;      
+}	
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 768px) {
+
+.item h4{
+   font-size: 32px;
+}
+.item p{
+   font-size: 24px;
+}
+#myCarousel .item{
+height: 310px;
+}
+#slide1{
+background: url(../../images/flip_s_1.jpg) top center no-repeat;   
+}
+#slide2{
+background: url(../../images/flip_s_2.jpg) top center no-repeat;      
+}
+#slide3{
+background: url(../../images/flip_s_3.jpg) top center no-repeat;     
+}
+#slide4{
+background: url(../../images/flip_s_4.jpg) top center no-repeat;      
+}
+#upcomingDeals img{
+width:100%;
+} 
+
+}
+/* Large desktop */
+@media (min-width: 1200px) {
+
+.item h4{
+   font-size: 32px;
+}
+.item p{
+   font-size: 24px;
+}
+#myCarousel .item{
+height: 400px;
+}
+#slide1{
+background: url(../../images/flip_l_1.jpg) top center no-repeat;   
+}
+#slide2{
+background: url(../../images/flip_l_2.jpg) top center no-repeat;      
+}
+#slide3{
+background: url(../../images/flip_l_3.jpg) top center no-repeat;     
+}
+#slide4{
+background: url(../../images/flip_l_4.jpg) top center no-repeat;      
+}	
+}
