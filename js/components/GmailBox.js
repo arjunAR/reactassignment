@@ -6,7 +6,7 @@ var loadedData = false;
 var GmailBox = React.createClass({
  getInitialState: function()
    {
-     return({allLabelsData:[]});
+     return({allLabelsData:[],allInboxId:[]});
    },
  gmailLogin: function()
  {
@@ -53,8 +53,31 @@ var GmailBox = React.createClass({
        }
    }, 500);
    this.allLabels();
+   this.allInboxId();
  },
+ allInboxId: function()
+ {
+     var accessToken = localStorage.getItem('gToken');
+     $.ajax({
+      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds=INBOX&maxResults=1&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
+      dataType: 'json',
+      type: 'GET',
+      beforeSend: function (request)
+      {
+        request.setRequestHeader("Authorization", "Bearer "+accessToken);
+      },
+      success: function(data)
+      {
+        console.log("data inside inbox ajax",data);
+        this.setState({allInboxId:data.messages});
+        loadedData=true;
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(err.toString());
+      }.bind(this)
+   });
 
+ },
 
  allLabels: function()
  {
@@ -87,8 +110,8 @@ var GmailBox = React.createClass({
    var rightPanel;
 
    if(loadedData){
-     leftPanel =  <TopLeft data={this.state.allLabelsData}/>
-     rightPanel='  Work In Progress..........';
+     leftPanel =<TopLeft data={this.state.allLabelsData} />;/*<TopLeft data={this.state.allLabelsData}/>*/
+     rightPanel=<TopRight inboxId={this.state.allInboxId} />;
    }
 
      return(
@@ -96,7 +119,7 @@ var GmailBox = React.createClass({
            <div className="container-fluid">
              <div className="row">
                  <div className="col-lg-1">
-                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Login</button>
+                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">DDDDDE</button>
                   </div>
                   <div className="col-lg-8 pull-right">
                     <h2>ReactMails</h2>
