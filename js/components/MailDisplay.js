@@ -3,18 +3,14 @@ var React=require('react');
 
 var MailDisplay=React.createClass({
   render:function(){
+    console.log("in render of maildisplay");
     return(
       <div>
-      <table>
-      <tbody>
-      <tr>
-      <td>TTTT</td>
-      <td>{this.props.from}</td>
-      <td>{this.props.subject}</td>
-      <td>{this.props.date}</td>
-      </tr>
-      </tbody>
-      </table>
+        <tr>
+      		<td>{this.props.from}</td>
+      		<td>{this.props.subject}</td>
+      		<td>{this.props.date}</td>
+    		</tr>
       </div>
     )
   }

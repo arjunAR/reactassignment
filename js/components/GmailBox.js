@@ -10,6 +10,7 @@ var GmailBox = React.createClass({
    },
  gmailLogin: function()
  {
+   console.log("in gmail login function");
    var acToken, tokenType, expiresIn;
    var OAUTHURL    =   'https://accounts.google.com/o/oauth2/v2/auth?';
    var SCOPE       =   'https://mail.google.com/ https://www.googleapis.com/auth/gmail.readonly';
@@ -57,11 +58,13 @@ var GmailBox = React.createClass({
  },
  allInboxId: function()
  {
+   console.log("in allInboxId function");
      var accessToken = localStorage.getItem('gToken');
      $.ajax({
-      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds=INBOX&maxResults=1&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
+      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds=INBOX&maxResults=5&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
+      async:false,
       beforeSend: function (request)
       {
         request.setRequestHeader("Authorization", "Bearer "+accessToken);
@@ -81,11 +84,13 @@ var GmailBox = React.createClass({
 
  allLabels: function()
  {
+   console.log("in all labels function of gmailbox");
      var accessToken = localStorage.getItem('gToken');
      $.ajax({
       url: 'https://www.googleapis.com/gmail/v1/users/me/labels?key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
+      async:false,
       beforeSend: function (request)
       {
         request.setRequestHeader("Authorization", "Bearer "+accessToken);
@@ -108,7 +113,7 @@ var GmailBox = React.createClass({
  {
    var leftPanel;
    var rightPanel;
-
+console.log("in RENDER of gmailbox");
    if(loadedData){
      leftPanel =<TopLeft data={this.state.allLabelsData} />;/*<TopLeft data={this.state.allLabelsData}/>*/
      rightPanel=<TopRight inboxId={this.state.allInboxId} />;
@@ -119,7 +124,7 @@ var GmailBox = React.createClass({
            <div className="container-fluid">
              <div className="row">
                  <div className="col-lg-1">
-                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">DDDDDE</button>
+                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Login Dude1212</button>
                   </div>
                   <div className="col-lg-8 pull-right">
                     <h2>ReactMails</h2>
