@@ -3,12 +3,15 @@ var React=require('react');
 
 
 var Label=React.createClass({
-	
+	handleLabel:function(){
+		this.props.fun(this.props.lId);
+	},
 	render:function(){
-
+		var dataFunction=this.props.fun;
+		var id=this.props.lId
 		return(
-		<div>	
-			<a id={this.props.lId}>{this.props.lName}</a>
+		<div>
+			<a onClick={this.handleLabel}>{id}</a>
 		</div>
 		);
 
@@ -17,4 +20,3 @@ var Label=React.createClass({
 });
 
 module.exports=Label;
-

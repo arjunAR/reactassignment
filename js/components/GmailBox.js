@@ -54,24 +54,25 @@ var GmailBox = React.createClass({
        }
    }, 500);
    this.allLabels();
-   this.allInboxId();
+   //this.allMailId();
  },
- allInboxId: function()
+ allMailId: function(label)
  {
+   console.log("FINALLL ONCLICKKKKK",label);
    console.log("in allInboxId function");
      var accessToken = localStorage.getItem('gToken');
      $.ajax({
-      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds=INBOX&maxResults=5&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
+      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds='+label+'&maxResults=5&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
-      async:false,
+      async:'false',
       beforeSend: function (request)
       {
         request.setRequestHeader("Authorization", "Bearer "+accessToken);
       },
       success: function(data)
       {
-        console.log("data inside inbox ajax",data);
+        console.log("data inside maill ajax",data);
         this.setState({allInboxId:data.messages});
         loadedData=true;
       }.bind(this),
@@ -90,14 +91,14 @@ var GmailBox = React.createClass({
       url: 'https://www.googleapis.com/gmail/v1/users/me/labels?key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
-      async:false,
+      async:'false',
       beforeSend: function (request)
       {
         request.setRequestHeader("Authorization", "Bearer "+accessToken);
       },
       success: function(data)
       {
-        console.log("data inside ajax"+data);
+        console.log("data inside label ajax"+data);
         this.setState({allLabelsData:data.labels});
         loadedData=true;
       }.bind(this),
@@ -105,7 +106,7 @@ var GmailBox = React.createClass({
         console.error(err.toString());
       }.bind(this)
    });
-
+    this.allMailId("INBOX");
  },
 
 
@@ -115,7 +116,7 @@ var GmailBox = React.createClass({
    var rightPanel;
 console.log("in RENDER of gmailbox");
    if(loadedData){
-     leftPanel =<TopLeft data={this.state.allLabelsData} />;/*<TopLeft data={this.state.allLabelsData}/>*/
+     leftPanel =<TopLeft data={this.state.allLabelsData} fun={this.allMailId} />;/*<TopLeft data={this.state.allLabelsData}/>*/
      rightPanel=<TopRight inboxId={this.state.allInboxId} />;
    }
 
@@ -124,7 +125,7 @@ console.log("in RENDER of gmailbox");
            <div className="container-fluid">
              <div className="row">
                  <div className="col-lg-1">
-                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Login Dude1212</button>
+                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Login</button>
                   </div>
                   <div className="col-lg-8 pull-right">
                     <h2>ReactMails</h2>

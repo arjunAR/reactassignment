@@ -6,10 +6,10 @@ var MailDisplay=React.createClass({
     console.log("in render of maildisplay");
     return(
       <div>
-        <tr>
-      		<td>{this.props.from}</td>
-      		<td>{this.props.subject}</td>
-      		<td>{this.props.date}</td>
+        <tr className="col-lg-12">
+      		<td className="col-lg-4">{this.props.from}</td>
+      		<td className="col-lg-4">{this.props.subject}</td>
+      		<td className="col-lg-4">{this.props.date}</td>
     		</tr>
       </div>
     )

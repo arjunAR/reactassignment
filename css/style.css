@@ -13,11 +13,15 @@ Notes:	 Hand coded for Udemy.com
 /* --------------------------------------
    Layout
    -------------------------------------- */
+
+
 table.test td {
-      width:320px;
+      width:320px;!important
       text-align: centre;
        margin: 12px 12px 12px 12px;
        padding: 18px 20px;
+       word-wrap:break-word;
+       
 }
 table.test th {
   width:320px;
