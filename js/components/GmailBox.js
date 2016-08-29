@@ -149,7 +149,7 @@ console.log("in RENDER of gmailbox");
          </div>
      </div>
      </div>
-     );
+   );
  }
  });
 
