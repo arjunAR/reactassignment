@@ -3,7 +3,7 @@ var React = require('react');
 var TopLeft=require('./TopLeft');
 var TopRight=require('./TopRight');
 var loadedData = false;
-var NavbarGmail=require('./NavbarGmail');
+
 var GmailBox = React.createClass({
  getInitialState: function()
    {
@@ -117,27 +117,30 @@ var GmailBox = React.createClass({
  {
    var leftPanel;
    var rightPanel;
-   var navbar;
+
 console.log("in RENDER of gmailbox");
    if(loadedData){
-     navbar=<NavbarGmail />
+
      leftPanel =<TopLeft data={this.state.allLabelsData} fun={this.allMailId} />;/*<TopLeft data={this.state.allLabelsData}/>*/
      rightPanel=<TopRight inboxId={this.state.allInboxId} />;
    }
 
      return(
        <div>
-       {navbar}
+
+       <br/><br/><br/><br/>
        <div className="GmailBox">
            <div className="container-fluid">
              <div className="row">
                  <div className="col-lg-1">
-                  <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Login</button>
+
                   </div>
                   <div className="col-lg-8 pull-right">
-                    <h2></h2>
+                    <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-right">Login</button>
+                      <br/><br/><br/>
                   </div>
               </div>
+
                <div className="row">
                  <div className="col-lg-2">
                     {leftPanel}

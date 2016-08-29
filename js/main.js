@@ -1,20 +1,20 @@
 var React=require('react');
 var ReactDom=require('react-dom');
-
-var GmailBox = require('./components/GmailBox')
-
+var {browserHistory,Route,Router,IndexRoute}=require('react-router');
+var GmailBox = require('./components/GmailBox');
+var About = require('./components/About');
+var NavBar = require('./components/NavBar');
+var Home = require('./components/Home');
 var MyComponent=React.createClass({
 
 
 	render:function(){
 		return(
-			<div>
+			<div className="container">
+           <NavBar />
 
-
-
-				<GmailBox />
-
-			</div>
+					 {this.props.children}
+         </div>
 
 		);
 
@@ -23,4 +23,13 @@ var MyComponent=React.createClass({
 
 
 
-ReactDom.render(<MyComponent />,document.getElementById('app'));
+ReactDom.render(
+	<Router history={browserHistory}>
+			<Route path="/" component={MyComponent}>
+				<IndexRoute component={Home} />
+				<Route path="/home" component={Home} />
+				<Route path="/about/:aboutName" component={About} />
+				<Route path="/gmailbox" component={GmailBox} />
+			</Route>
+	</Router>
+			,document.getElementById('app'));

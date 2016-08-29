@@ -18,7 +18,9 @@ body{
   color: black;
   font-size: 14px;
 }
-
+.active{
+  color:white;
+}
 table.test td {
       width:320px;!important
       text-align: centre;
