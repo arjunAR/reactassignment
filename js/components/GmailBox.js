@@ -3,6 +3,7 @@ var React = require('react');
 var TopLeft=require('./TopLeft');
 var TopRight=require('./TopRight');
 var loadedData = false;
+var NavbarGmail=require('./NavbarGmail');
 var GmailBox = React.createClass({
  getInitialState: function()
    {
@@ -62,18 +63,19 @@ var GmailBox = React.createClass({
    console.log("in allInboxId function");
      var accessToken = localStorage.getItem('gToken');
      $.ajax({
-      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds='+label+'&maxResults=5&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
+      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds='+label+'&maxResults=7&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
-      async:'false',
+      async:false,
       beforeSend: function (request)
       {
         request.setRequestHeader("Authorization", "Bearer "+accessToken);
       },
       success: function(data)
       {
-        console.log("data inside maill ajax",data);
+
         this.setState({allInboxId:data.messages});
+          console.log("MAIL ajax",this.state.allInboxId);
         loadedData=true;
       }.bind(this),
       error: function(xhr, status, err) {
@@ -91,15 +93,16 @@ var GmailBox = React.createClass({
       url: 'https://www.googleapis.com/gmail/v1/users/me/labels?key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
-      async:'false',
+      async:false,
       beforeSend: function (request)
       {
         request.setRequestHeader("Authorization", "Bearer "+accessToken);
       },
       success: function(data)
       {
-        console.log("data inside label ajax"+data);
+
         this.setState({allLabelsData:data.labels});
+          console.log("LABEL ajax",this.state.allLabelsData);
         loadedData=true;
       }.bind(this),
       error: function(xhr, status, err) {
@@ -114,13 +117,17 @@ var GmailBox = React.createClass({
  {
    var leftPanel;
    var rightPanel;
+   var navbar;
 console.log("in RENDER of gmailbox");
    if(loadedData){
+     navbar=<NavbarGmail />
      leftPanel =<TopLeft data={this.state.allLabelsData} fun={this.allMailId} />;/*<TopLeft data={this.state.allLabelsData}/>*/
      rightPanel=<TopRight inboxId={this.state.allInboxId} />;
    }
 
      return(
+       <div>
+       {navbar}
        <div className="GmailBox">
            <div className="container-fluid">
              <div className="row">
@@ -128,7 +135,7 @@ console.log("in RENDER of gmailbox");
                   <button id="authorize-button" onClick={this.gmailLogin} className="btn btn-primary pull-left">Login</button>
                   </div>
                   <div className="col-lg-8 pull-right">
-                    <h2>ReactMails</h2>
+                    <h2></h2>
                   </div>
               </div>
                <div className="row">
@@ -140,6 +147,7 @@ console.log("in RENDER of gmailbox");
                  </div>
                </div>
          </div>
+     </div>
      </div>
      );
  }

@@ -8,7 +8,10 @@ var MyComponent=React.createClass({
 
 	render:function(){
 		return(
-			<div className="container" id="main">
+			<div>
+
+
+
 				<GmailBox />
 
 			</div>

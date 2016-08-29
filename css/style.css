@@ -13,7 +13,11 @@ Notes:	 Hand coded for Udemy.com
 /* --------------------------------------
    Layout
    -------------------------------------- */
-
+body{
+  font-family: arial,sans-serif;
+  color: black;
+  font-size: 14px;
+}
 
 table.test td {
       width:320px;!important
@@ -21,12 +25,13 @@ table.test td {
        margin: 12px 12px 12px 12px;
        padding: 18px 20px;
        word-wrap:break-word;
-       
+
 }
 table.test th {
   width:320px;
   text-align: centre;
-       background-color: grey;
+       background-color:#d9534f;
+       color:white;
        margin: 12px 12px 12px 12px;
        padding: 12px 12px 12px 12px;
 }
@@ -63,9 +68,7 @@ height:400px;
 .navbar-brand img{
    width:149px;
 }
-#myNavBar{
-   background: #2567d3;
-}
+
 #searchsite{
    width: 200px;
    margin-top: 10px;
@@ -111,9 +114,15 @@ footer{
    font-weight: normal;
    padding: 15px;
 }
-footer ul{
-   list-style: none;
-   padding: 0;
+ul{
+ list-style: none;
+color:black;
+font-weight: bold;
+font-size: 24px;
+margin-left: -30px;
+}
+ul li a{
+color:black;
 }
 
 footer h4{
@@ -137,106 +146,13 @@ footer p{
 .item p{
    font-size: 24px;
 }
-#myCarousel .item{
-height: 400px;
-}
-#slide1{
-background: url(../../images/flip_l_1.jpg) top center no-repeat;
-}
-#slide2{
-background: url(../../images/flip_l_2.jpg) top center no-repeat;
-}
-#slide3{
-background: url(../../images/flip_l_3.jpg) top center no-repeat;
-}
-#slide4{
-background: url(../../images/flip_l_4.jpg) top center no-repeat;
-}
 
-/* --------------------------------------
-   Global Styles
-   -------------------------------------- */
 
-/* --------------------------------------
-   Media Queries
-   -------------------------------------- */
+#myNavBar ul li{
 
-/* Portrait & landscape phone */
-@media (max-width: 480px) {
-#jumbo p{
-font-size: 18px;
+   font-size: 14px;
 }
-.item h4{
-   font-size: 26px;
-}
-.item p{
-   font-size: 16px;
-}
-#slide1{
-background: url(../../images/flip_s_1.jpg) top center no-repeat;
-}
-#slide2{
-background: url(../../images/flip_s_2.jpg) top center no-repeat;
-}
-#slide3{
-background: url(../../images/flip_s_3.jpg) top center no-repeat;
-}
-#slide4{
-background: url(../../images/flip_s_4.jpg) top center no-repeat;
-}
-}
+#myNavBar{
+   background: #d9534f;
 
-/* Landscape phone to portrait tablet */
-@media (max-width: 768px) {
-
-.item h4{
-   font-size: 32px;
-}
-.item p{
-   font-size: 24px;
-}
-#myCarousel .item{
-height: 310px;
-}
-#slide1{
-background: url(../../images/flip_s_1.jpg) top center no-repeat;
-}
-#slide2{
-background: url(../../images/flip_s_2.jpg) top center no-repeat;
-}
-#slide3{
-background: url(../../images/flip_s_3.jpg) top center no-repeat;
-}
-#slide4{
-background: url(../../images/flip_s_4.jpg) top center no-repeat;
-}
-#upcomingDeals img{
-width:100%;
-}
-
-}
-/* Large desktop */
-@media (min-width: 1200px) {
-
-.item h4{
-   font-size: 32px;
-}
-.item p{
-   font-size: 24px;
-}
-#myCarousel .item{
-height: 400px;
-}
-#slide1{
-background: url(../../images/flip_l_1.jpg) top center no-repeat;
-}
-#slide2{
-background: url(../../images/flip_l_2.jpg) top center no-repeat;
-}
-#slide3{
-background: url(../../images/flip_l_3.jpg) top center no-repeat;
-}
-#slide4{
-background: url(../../images/flip_l_4.jpg) top center no-repeat;
-}
 }
