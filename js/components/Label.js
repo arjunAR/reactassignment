@@ -11,10 +11,11 @@ var Label=React.createClass({
 		var dataFunction=this.props.fun;
 		var id=this.props.lId;
 		id = id.toLowerCase().split(' ');
-  for (var i = 0; i < id.length; i++) {
+  	for (var i = 0; i < id.length; i++)
+		{
     id[i] = id[i].charAt(0).toUpperCase() + id[i].slice(1);
-  }
-  id=id.join(' ');
+  	}
+  	id=id.join(' ');
 
 		return(
 		<div>

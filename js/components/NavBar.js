@@ -11,7 +11,7 @@ render:function(){
         <div className="container">
 
           <ul className="nav navbar-nav">
-          <li><NavLink to="/home">Home</NavLink></li>
+          <li><NavLink to="/home">Homee</NavLink></li>
           <li><NavLink to="/gmailbox">Gmail</NavLink></li>
           <li><NavLink to="/about/React">About React</NavLink></li>
           <li><NavLink to="/about/Window">About Window</NavLink></li>

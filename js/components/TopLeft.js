@@ -4,6 +4,11 @@ var Label=require('./Label');
 
 
 var TopLeft=React.createClass({
+
+	getInitialState:function(){
+		console.log("IN getInitialState of TOPLEFT")
+		return({zz:true});
+	},
 	render:function(){
 		var fun=this.props.fun;
 		var that=this;

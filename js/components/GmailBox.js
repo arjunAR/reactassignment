@@ -63,7 +63,7 @@ var GmailBox = React.createClass({
    console.log("in allInboxId function");
      var accessToken = localStorage.getItem('gToken');
      $.ajax({
-      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds='+label+'&maxResults=7&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
+      url: 'https://www.googleapis.com/gmail/v1/users/me/messages?labelIds='+label+'&maxResults=5&key={AIzaSyB5Fugum-RuTDl-zClHEWeyzYjvs48r1tY}',
       dataType: 'json',
       type: 'GET',
       async:false,

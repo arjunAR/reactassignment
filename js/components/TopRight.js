@@ -33,7 +33,7 @@ var TopRight=React.createClass({
 
 			//console.log("length of array 1",allMessagesArray.length);
 		var inboxDetails=that.props.inboxId.map(function(i){
-			console.log("inital ID BEFORE AJAX in TOPRIGHT",i.id);
+			//console.log("inital ID BEFORE AJAX in TOPRIGHT",i.id);
 			var subject;
 			var from;
 			var date;
@@ -71,13 +71,16 @@ var TopRight=React.createClass({
 
 				  if(typeof data.payload.parts === 'undefined')
 				   {
+						  console.log(" enCODED 11",data.payload.body.data);
 				     encodedBody = data.payload.body.data;
 				   }
 				   else
 				   {
+						   console.log(" enCODED 22",data.payload.parts);
 				     encodedBody = that.getHTMLPart(data.payload.parts);
 				   }
 
+					 console.log("final enCODED",encodedBody)
 					 for(var j=0;j<data.labelIds.length;j++){
 						// console.log("000000",j,data.labelIds[j]);
 						 if(data.labelIds[j]=="INBOX"){
@@ -109,7 +112,7 @@ return(
 	});
 
 	},
-	componentWillMount:function(){
+	componentDidMount:function(){
 			console.log("In componentWillMount of topright");
 		this.computeMessages();
 	},
